@@ -1,6 +1,6 @@
 // Unsplash Images API request
 
-const apiKey = "rba6OSYhYgsFIoI0ZLr-mpA1Vp8pqCYjbuDY9g9B3oA";
+const apiKey = "_PvfhiYCQkSn9SSZqnTn9i31nB19gHmt4grhczRO4Oc";
 const images = document.querySelectorAll(".image");
 
 fetch(`https://api.unsplash.com/photos/random?client_id=${apiKey}`)
