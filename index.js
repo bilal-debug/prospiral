@@ -1,9 +1,26 @@
 
-async function fetchImage() {
-    const response = await fetch('https://source.unsplash.com/random/400x200');
-    const imageURL = response.url;
-    document.getElementById('card-image').src = imageURL;
-  }
+ // Unsplash Images API request
+
+ const apiKey = 'rba6OSYhYgsFIoI0ZLr-mpA1Vp8pqCYjbuDY9g9B3oA';
+ const images = document.querySelectorAll('.image');
+ 
+ 
+ fetch(`https://api.unsplash.com/photos/random?query=restaurant&count=10&client_id=${apiKey}`)
+   
+ .then(response => response.json())
+   
+   .then(data => {
+    
+    
+     data.forEach((photo, index) => {
+        (document.getElementById('author-image').src=photo.urls.regular);
+        (document.getElementById('card-image').src=photo.urls.regular);
+
+      
+       
+     });
+   });
+ 
   
  
   async function fetchData() {
@@ -14,12 +31,12 @@ async function fetchImage() {
     document.getElementById('subtitle').innerText = data.subtitle;
     document.getElementById('description').innerText = data.description;
     document.getElementById('author-name').innerText = data.author.name;
-    document.getElementById('author-image').src = data.author.image;
+    
   }
   
 
   function init() {
-    fetchImage();
+    
     fetchData();
   }
   
